@@ -4,14 +4,14 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import type { NextAuthConfig } from "next-auth";
 import { LoginSchema } from "@/schemas";
 import { getUserByEmail } from "@/data/user";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 // we are using this file because prisma doesn't work on edge but middleware does
 export default {
   providers: [
     Google({
       clientId: process.env.AUTH_GOOGLE_ID,
-      clientSecret: process.env.AUTH_GITHUB_SECRET,
+      clientSecret: process.env.AUTH_GOOGLE_SECRET,
     }),
     GitHub({
       clientId: process.env.AUTH_GITHUB_ID,

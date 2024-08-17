@@ -1,9 +1,8 @@
 import prismaDB from "@/lib/prismadb";
-
-import getSession from "./getSession";
+import { auth } from "@/auth"
 
 const getUsers = async () => {
-  const session = await getSession();
+  const session = await auth();
 
   if (!session?.user?.email) {
     return [];

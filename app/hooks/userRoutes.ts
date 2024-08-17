@@ -5,9 +5,12 @@ import { HiArrowLeftOnRectangle, HiUsers } from "react-icons/hi2";
 import { signOut } from "next-auth/react";
 
 import useConversation from "./useConversation";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const useRoutes = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const { conversationId } = useConversation();
 
   const routes = useMemo(
@@ -26,8 +29,11 @@ const useRoutes = () => {
       },
       {
         label: "Logout",
-        href: "#",
-        onClick: () => signOut(),
+        href: "/",
+        onClick: () => {
+          signOut();
+          toast.success("Logged out successfully.");
+        },
         icon: HiArrowLeftOnRectangle,
       },
     ],
