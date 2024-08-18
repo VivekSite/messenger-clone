@@ -15,42 +15,51 @@ const Select: React.FC<SelectProps> = ({
   value,
   onChange,
   options,
-  disabled
+  disabled,
 }) => {
-  return ( 
-  <div className="z-[100]">
-    <label
-      className="
+  return (
+    <div className="z-[100]">
+      <label
+        className="
         block
         text-sm
         font-medium
         leading-6
         text-gray-100
       "
-    >
-      {label}
-    </label>
-    <div className="mt-2 bg-[#29292b]">
-      <ReactSelect
-        isDisabled={disabled}
-        value={value}
-        onChange={onChange}
-        isMulti
-        options={options}
-        menuPortalTarget={document.body}
-        styles={{
-          menuPortal: (base) => ({
-            ...base,
-            zIndex: 9999,
-          })
-        }}
-        classNames={{
-          control: () => "text-sm",
-        }}
-      />
+      >
+        {label}
+      </label>
+      <div className="mt-2">
+        <ReactSelect
+          isDisabled={disabled}
+          value={value}
+          onChange={onChange}
+          isMulti
+          options={options}
+          menuPortalTarget={document.body}
+          theme={(theme) => ({
+            ...theme,
+            colors: {
+              ...theme.colors,
+              primary25: "#323234",
+              primary: "#323234",
+            },
+          })}
+          styles={{
+            menuPortal: (base) => ({
+              ...base,
+              zIndex: 9999,
+            }),
+            control: (styles) => ({ ...styles, backgroundColor: "#29292b", border: "1px solid rgb(71 85 105)", outline: "none" })
+          }}
+          classNames={{
+            menuList: () => "text-sm text-gray-100 bg-[#252527]",
+          }}
+        />
+      </div>
     </div>
-  </div>
-   );
-}
- 
+  );
+};
+
 export default Select;
