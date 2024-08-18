@@ -11,5 +11,5 @@ export default auth((req) => {
 
 // middleware will be get invoked for below paths
 export const config = {
-  matcher: ["/users/:path*"],
+  matcher: ["/users/:path*", "/conversations/:paht*"],
 };
