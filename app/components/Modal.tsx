@@ -38,7 +38,7 @@ const Modal: React.FC<ModalProps> = ({
             className="
               fixed
               inset-0
-              bg-gray-500
+              bg-[#29292b]
               bg-opacity-75
               transition-opacity
             "
@@ -71,7 +71,7 @@ const Modal: React.FC<ModalProps> = ({
                   transform
                   overflow-hidden
                   rounded-lg
-                  bg-white
+                  bg-neutral-900
                   px-4
                   pb-4
                   text-left

@@ -70,7 +70,7 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
                 text-base
                 font-semibold
                 leading-7
-                text-gray-900
+                text-gray-100
               "
             >
               Create a group chat
@@ -80,11 +80,12 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
                 mt-1
                 text-sm
                 leading-6
-                text-gray-600
+                text-gray-400
               "
             >
               Create a chat with more than 2 people.
             </p>
+            
             <div
               className="
                 mt-10
@@ -116,6 +117,7 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
             </div>
           </div>
         </div>
+
         <div
           className="
             mt-6

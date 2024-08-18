@@ -42,13 +42,10 @@ const Avatar: React.FC<AvatarProps> = ({
             rounded-full
             bg-green-500
             ring-2
-            ring-white
-            top-0
-            right-0
-            h-2
-            w-2
-            md:h-3
-            md:w-3
+            ring-gray-100
+            top-[2px]
+            right-[2px]
+            size-2
           "
         />
       )}

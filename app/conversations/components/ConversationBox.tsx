@@ -74,13 +74,14 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         flex
         items-center
         space-x-3
-        hover:bg-neutral-100
+        bg-[#29292b]
+        hover:bg-neutral-700
         rounded-lg
         transition
         cursor-pointer
         p-3
       `,
-        selected ? 'bg-neutral-100' : 'bg-white'
+        selected ? 'bg-neutral-700' : 'bg-[#29292b]'
       )}
     >
       {data.isGroup ? (
@@ -102,7 +103,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
               className="
                 text-md
                 font-medium
-                text-gray-900
+                text-gray-100
               "
             >
               {data.name || otherUser.name}
@@ -124,7 +125,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
               truncate
               text-sm
             `,
-              hasSeen ? 'text-gray-500' : 'text-black font-medium'
+              hasSeen ? 'text-neutral-500' : 'text-neutral-300 font-medium'
             )}
           >
             {lastMessageText}

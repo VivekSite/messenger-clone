@@ -103,7 +103,7 @@ const AuthForm = () => {
     >
       <div
         className="
-          bg-white
+          bg-neutral-900
           px-4
           py-8
           shadow
@@ -158,7 +158,7 @@ const AuthForm = () => {
                 className="
                   w-full 
                   border-t 
-                  border-gray-300"
+                  border-gray-200"
               />
             </div>
             <div
@@ -171,9 +171,9 @@ const AuthForm = () => {
             >
               <span
                 className="
-                bg-white 
+                bg-[#131314] 
                 px-2 
-                text-gray-500"
+                text-gray-100"
               >
                 Or continue with
               </span>
@@ -200,7 +200,7 @@ const AuthForm = () => {
           text-sm
           mt-6
           px-2
-          text-gray-500
+          text-gray-100
         "
         >
           <div>

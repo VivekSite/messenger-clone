@@ -22,7 +22,8 @@ const UserList: React.FC<UserListProps> = ({
         lg:block
         overflow-y-auto
         border-r
-        border-gray-200
+        border-gray-600
+        bg-[#29292b]
         block
         w-full
         left-0
@@ -33,7 +34,7 @@ const UserList: React.FC<UserListProps> = ({
           <div className="
             text-2xl
             font-bold
-            text-neutral-800
+            text-neutral-100
             py-4
           ">
             People

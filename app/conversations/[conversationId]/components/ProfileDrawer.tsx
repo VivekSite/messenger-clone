@@ -71,8 +71,8 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
               className="
                 fixed
                 inset-0
-                bg-black
-                bg-opacity-40
+                bg-gray-900
+                bg-opacity-50
               "
             />
           </TransitionChild>
@@ -122,8 +122,8 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                         flex
                         h-full
                         flex-col
-                        overflow-y-scroll
-                        bg-white
+                        overflow-y-auto
+                        bg-neutral-900
                         py-6
                         shadow-xl
                       "
@@ -183,10 +183,10 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                               <Avatar user={otherUser} />
                             )}
                           </div>
-                          <div>{title}</div>
+                          <div className="text-gray-100">{title}</div>
                           <div
                             className="
-                            text-sm text-gray-500
+                            text-sm text-gray-400
                           "
                           >
                             {statusText}
@@ -220,7 +220,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                 className="
                                   text-sm
                                   font-light
-                                  text-neutral-600
+                                  text-neutral-200
                                 "
                               >
                                 Delete
@@ -249,6 +249,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   <dt
                                     className="
                                       text-lg
+                                      text-gray-100
                                       font-medium
                                       sm:w-40
                                       sm:flex-shrink-0
@@ -260,18 +261,18 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                     className="
                                       mt-1
                                       text-sm
-                                      text-gray-900
+                                      text-gray-300
                                       sm:col-span-2
                                     "
                                   >
                                     {data.users.map((user) => (
-                                      <li 
+                                      <li
                                         key={user.email}
                                         className="flex justify-between"
                                       >
-                                        <span 
-                                          className="font-semibold"
-                                        >{user.name}</span>
+                                        <span className="font-semibold">
+                                          {user.name}
+                                        </span>
                                         <span>{user.email}</span>
                                       </li>
                                     ))}
@@ -282,9 +283,9 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                 <div>
                                   <dt
                                     className="
-                                      text-sm
+                                      text-lg
                                       font-medium
-                                      text-gray-500
+                                      text-gray-100
                                       sm:w-40
                                       sm:flex-shrink-0
                                     "
@@ -295,11 +296,16 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                     className="
                                       mt-1
                                       text-sm
-                                      text-gray-900
+                                      text-gray-300
                                       sm:col-span-2
+                                      flex
+                                      justify-between
                                     "
                                   >
-                                    {otherUser.email}
+                                    <span className="font-semibold">
+                                      {otherUser.name}
+                                    </span>
+                                    <span>{otherUser.email}</span>
                                   </dd>
                                 </div>
                               )}
@@ -311,7 +317,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                       className="
                                         text-sm
                                         font-medium
-                                        text-gray-500
+                                        text-gray-100
                                         sm:w-40
                                         sm:flex-shrink-0
                                       "
@@ -322,7 +328,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                       className="
                                         mt-1
                                         text-sm
-                                        text-gray-900
+                                        text-gray-400
                                         sm:col-span-2
                                       "
                                     >

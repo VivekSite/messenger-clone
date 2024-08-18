@@ -49,8 +49,9 @@ const Form = () => {
       className="
         py-4
         px-4
-        bg-white
+        bg-[#222223]
         border-t
+        border-gray-600
         flex
         items-center
         gap-2
@@ -89,7 +90,7 @@ const Form = () => {
         >
           <HiPaperAirplane
             size={18}
-            className="text-white"
+            className="text-gray-100"
           />
         </button>
       </form>

@@ -43,9 +43,9 @@ const UserBox: React.FC<UserBoxProps> = ({
           flex
           items-center
           space-x-3
-          bg-white
+          bg-gay-700
           p-3
-          hover:bg-neutral-100
+          hover:bg-neutral-700
           rounded-lg
           transition
           cursor-pointer
@@ -66,7 +66,7 @@ const UserBox: React.FC<UserBoxProps> = ({
                 className="
                   text-sm
                   font-medium
-                  text-gray-900
+                  text-gray-100
                 "
               >
                 {data.name}

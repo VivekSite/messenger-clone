@@ -5,7 +5,7 @@ import { Conversation, User } from "@prisma/client";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { HiChevronLeft, HiEllipsisHorizontal } from "react-icons/hi2";
+import { HiChevronLeft, HiEllipsisVertical } from "react-icons/hi2";
 import Avatar from "@/app/components/Avatar";
 import AvatarGroup from "@/app/components/AvatarGroup";
 
@@ -14,16 +14,14 @@ import useActiveList from "@/app/hooks/useActiveList";
 
 interface HeaderProps {
   conversation: Conversation & {
-    users: User[]
-  }
-};
+    users: User[];
+  };
+}
 
-const Header: React.FC<HeaderProps> = ({
-  conversation
-}) => {
+const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const otherUser = useOtherUser(conversation);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  
+
   const { members } = useActiveList();
   const isActive = members.indexOf(otherUser?.email!) !== -1;
 
@@ -31,11 +29,11 @@ const Header: React.FC<HeaderProps> = ({
     if (conversation.isGroup) {
       return `${conversation.users.length} members`;
     }
-    
-    return isActive ? 'Active' : 'Offline';
+
+    return isActive ? "Active" : "Offline";
   }, [conversation, isActive]);
 
-  return ( 
+  return (
     <>
       <ProfileDrawer
         data={conversation}
@@ -44,10 +42,11 @@ const Header: React.FC<HeaderProps> = ({
       />
       <div
         className="
-          bg-white
+          bg-[#29292b]
           w-full
           flex
           border-b-[1px]
+          border-gray-600
           sm:px-4
           py-3
           px-4
@@ -58,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({
         "
       >
         <div className="flex gap-3 items-center">
-          <Link 
+          <Link
             className="
               lg:hidden
               block
@@ -76,22 +75,20 @@ const Header: React.FC<HeaderProps> = ({
           ) : (
             <Avatar user={otherUser} />
           )}
-          <div className="flex flex-col">
-            <div>
-              {conversation.name || otherUser.name}
-            </div>
+          <div className="flex text-neutral-100 flex-col">
+            <div>{conversation.name || otherUser.name}</div>
             <div
               className="
                 text-sm
                 font-light
-                text-neutral-500
+                text-neutral-300
               "
             >
               {statusText}
             </div>
           </div>
         </div>
-        <HiEllipsisHorizontal
+        <HiEllipsisVertical
           size={32}
           onClick={() => setDrawerOpen(true)}
           className="
@@ -103,7 +100,7 @@ const Header: React.FC<HeaderProps> = ({
         />
       </div>
     </>
-   );
-}
- 
+  );
+};
+
 export default Header;

@@ -34,7 +34,7 @@ const Input: React.FC<InputProps> = ({
           text-sm
           font-medium
           leading-6
-          text-gray-900
+          text-gray-100
         "
         htmlFor={id}
       >
@@ -54,12 +54,12 @@ const Input: React.FC<InputProps> = ({
             rounded-md
             border-0
             py-1.5
-            text-gray-900
+            bg-[#29292b]
+            text-gray-100
             shadow-sm
             ring-1
-            ring-inset
-            ring-gray-300
-            placeholder:text-gray-400
+            ring-gray-700
+            placeholder:text-gray-300
             focus:ring-2
             focus:ring-inset
             focus:ring-sky-600
