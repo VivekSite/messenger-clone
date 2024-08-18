@@ -24,7 +24,7 @@ const AuthForm = () => {
     if (session?.status === "authenticated") {
       router.push("/users");
     }
-  }, [session?.status, router]);
+  }, [router, session?.status]);
 
   const toggleVariant = useCallback(() => {
     if (variant === "LOGIN") {
@@ -48,12 +48,24 @@ const AuthForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
+    const loadingToastId: string | undefined = toast.loading("Please wait...", {
+      duration: 30000,
+    });
 
     if (variant === "REGISTER") {
       axios
         .post("/api/register", data)
-        .then(() => signIn("credentials", data))
-        .catch(() => toast.error("Something went wrong!"))
+        .then(() => {
+          signIn("credentials", { ...data, redirect: false }).then(() => {
+            toast.dismiss(loadingToastId);
+            toast.success("Registered successfully");
+            router.push("/users");
+          })
+        })
+        .catch(() => {
+          toast.dismiss(loadingToastId);
+          toast.error("Something went wrong!");
+        })
         .finally(() => setIsLoading(false));
     }
 
@@ -63,6 +75,7 @@ const AuthForm = () => {
         redirect: false,
       })
         .then((callback) => {
+          toast.dismiss(loadingToastId);
           if (callback?.error) {
             toast.error("Invalid credentials");
           }
@@ -72,7 +85,10 @@ const AuthForm = () => {
             router.push("/users");
           }
         })
-        .finally(() => setIsLoading(false));
+        .finally(() => {
+          setIsLoading(false);
+          toast.dismiss(loadingToastId);
+        });
     }
   };
 

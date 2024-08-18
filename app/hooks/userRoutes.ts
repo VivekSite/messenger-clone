@@ -31,13 +31,15 @@ const useRoutes = () => {
         label: "Logout",
         href: "/",
         onClick: () => {
-          signOut();
-          toast.success("Logged out successfully.");
+          signOut({ redirect: false }).then(() => {
+            router.push("/");
+            toast.success("Logged out successfully.");
+          });
         },
         icon: HiArrowLeftOnRectangle,
       },
     ],
-    [pathname, conversationId]
+    [pathname, conversationId, router]
   );
 
   return routes;
